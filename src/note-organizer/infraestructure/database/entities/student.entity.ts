@@ -19,7 +19,10 @@ export class Student {
   academic_credits: number;
 
   //join table solo va en una de las dos tablas a unir
-  @ManyToMany(() => Course, (course) => course.students)
+  @ManyToMany(() => Course, (course) => course.students, {
+    cascade: true,
+    eager: true,
+  })
   @JoinTable({
     name: 'course_student',
     joinColumn: {

@@ -28,4 +28,14 @@ export class StudentRepository implements IStudentRepository {
     const newStudent = this.studentRepository.create(student);
     return await this.studentRepository.save(newStudent);
   }
+
+  async update(
+    id: number,
+    updatedStudent: Partial<IStudentDomainEntity>,
+  ): Promise<Student> {
+    const student = await this.studentRepository.findOneBy({ id });
+    // Actualizar los campos del estudiante con los valores proporcionados en updatedStudent
+    Object.assign(student, updatedStudent);
+    return await this.studentRepository.save(student);
+  }
 }

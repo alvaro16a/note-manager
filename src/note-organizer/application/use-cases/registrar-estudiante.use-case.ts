@@ -39,6 +39,7 @@ export class RegistrarEstudianteUseCase extends ValueObjectErrorHandler {
       last_name: command.last_name,
       academic_credits: 0,
       average_grade: 0,
+      courses: [],
     };
     const result = await this.studentRepository.create(newStudent);
     return { data: result };

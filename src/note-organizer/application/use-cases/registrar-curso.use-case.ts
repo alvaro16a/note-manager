@@ -35,6 +35,7 @@ export class RegistrarCursoUseCase extends ValueObjectErrorHandler {
       id: id.valueOf(),
       name: name.valueOf(),
       credits: credits.valueOf(),
+      students: [],
     };
     const result = await this.courseRepository.create(newCourse);
     return { data: result };

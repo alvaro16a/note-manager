@@ -1,3 +1,4 @@
+import { Course } from 'src/note-organizer/infraestructure/database/entities';
 import { IStudentDomainEntity } from './student.interface-entity';
 
 export class StudentDomainEntity implements IStudentDomainEntity {
@@ -6,6 +7,7 @@ export class StudentDomainEntity implements IStudentDomainEntity {
   last_name: string;
   average_grade: number;
   academic_credits: number;
+  courses: Course[];
 
   constructor(student?: IStudentDomainEntity) {
     if (student.id) this.id = student.id;
